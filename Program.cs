@@ -1,5 +1,6 @@
 global using Microsoft.EntityFrameworkCore;
 global using App01.Data;
+using Microsoft.Extensions.PlatformAbstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +11,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<DataContext>(options => 
 {
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));    
-    options.UseMySql(connectionString, serverVersion);
+    var path = PlatformServices.Default.Application.ApplicationBasePath;
+    options.UseSqlite("Filename=" + Path.Combine(path, "database.db"));
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

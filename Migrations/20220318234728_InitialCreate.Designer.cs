@@ -10,32 +10,30 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace app01.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220318193736_CreateInitial")]
-    partial class CreateInitial
+    [Migration("20220318234728_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
 
             modelBuilder.Entity("App01.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("Salary")
-                        .HasColumnType("double");
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
