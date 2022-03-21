@@ -51,7 +51,7 @@ namespace App01.Controllers
             dbEmployee.Salary = request.Salary;
 
             await _context.SaveChangesAsync();
-            _context.Employees.Remove(dbEmployee);
+            _context.Employees.Update(dbEmployee);
             await _context.SaveChangesAsync();
             return Ok(await _context.Employees.ToListAsync());
         }
