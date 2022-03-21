@@ -21,3 +21,25 @@ dotnet run
 [https://localhost:7040/swagger](https://localhost:7040/swagger)
 
 A portot be kell helyettesíteni.
+
+## Üzembehelyezés
+
+### 2.0 verziótól
+
+```bash
+dotnet build
+```
+
+```bash
+dotnet run
+```
+
+### 4.0 verziótól így is használható
+
+```bash
+nuget restore
+```
+
+```bash
+dotnet restore
+```
